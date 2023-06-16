@@ -16,7 +16,7 @@ const btngift = `bg-[#2F363D] p-2 rounded-lg relative max-[640px]:hidden`
 const dotgift = `w-3 h-3 bg-[#647280] rounded-3xl absolute -top-[2px] -right-[2px]`
 const NotificationSection = `flex gap-4  col-span-2 justify-end items-center `
 const SearchSection = `flex col-span-2  items-center gap-2 max-[640px]:hidden`
-const UserSection = `flex gap-4 justify-center items-center `
+const UserSection = `flex gap-4 justify-end items-center `
 const WraperUserSection = `flex gap-2 bg-[#EEFFF30A] rounded-lg`
 const UserAvatar = `w-10 h-10 bg-[#D3D6E4] rounded-lg `
 

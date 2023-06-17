@@ -1,8 +1,15 @@
 
 <script setup >
-import { defineComponent } from 'vue';
+import { onMounted, ref } from 'vue';
 import { DoughnutChart, BarChart } from 'vue-chart-3';
 import { Chart, registerables } from "chart.js";
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper';
+import axios from 'axios'
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
 
 Chart.register(...registerables);
 const MainLayout = `mt-14 grid grid-cols-2 gap-4  px-6 pb-2 `
@@ -15,7 +22,19 @@ const testData = {
         },
     ],
 };
-
+const modules = [Navigation, Pagination, Mousewheel, Keyboard];
+const imagenSlide = ref([]);
+const getImgForSlide = async () => {
+    try{
+        let {data} = await axios('https://picsum.photos/v2/list?page=2&limit=5');
+        imagenSlide.value = data.map(item => item.download_url)
+    }catch(e){
+        console.log(e)
+    }
+}
+onMounted(() => {
+    getImgForSlide()
+})
 </script>
 <template>
     <div :class="MainLayout">
@@ -44,10 +63,10 @@ const testData = {
                     </div>
                 </div>
             </div>
-            <div class="grid grid-cols-2 gap-4 mt-6">
-                <div class="w-full h-36 bg-[#2F363D] rounded-[17px] py-4"  v-for="n in 4" :key="n" >
+            <div class="grid grid-cols-2 gap-4 mt-12">
+                <div class="w-full h-36 bg-[#2F363D] rounded-[17px] py-4" v-for="n in 4" :key="n">
                     <div class="flex flex-col justify-between px-8 w-full">
-                        <div class="flex justify-between -mb-2"> 
+                        <div class="flex justify-between -mb-2">
                             <span class="font-bold">456k Pcs</span>
                             <span class="flex gap-2 text-[#B7B7B7] text-[12px]">
                                 Daily
@@ -60,7 +79,7 @@ const testData = {
                         <div class="">
                             <span class="text-[12px] text-[#ffffff6d]">Ticket Sold</span>
                         </div>
-                        <div class="-mt-2"> 
+                        <div class="-mt-2">
                             <BarChart :chartData="testData" :width="150" :height="90" />
                         </div>
                     </div>
@@ -70,13 +89,13 @@ const testData = {
         <div>
             <div class="w-[650px] h-[250px] bg-gradient-to-r from-[#13B497] to-[#05737A] rounded-lg p-6">
                 <div class="px-8 w-full flex justify-between">
-                    <div> 
+                    <div>
                         <span class="font-bold">Sales Comparison</span>
                         <span class="flex gap-2">
                             Than last day
                         </span>
                     </div>
-                    <div> 
+                    <div>
                         <span class="flex gap-2 text-4xl font-bold ">
                             94%
                         </span>
@@ -86,8 +105,13 @@ const testData = {
                     <BarChart :chartData="testData" :width="100" :height="150" />
                 </div>
             </div>
-            <div class="h-3/5 my-5 w-full bg-red-500 rounded-lg">
-
+            <div class="h-3/5  my-5 w-full  rounded-lg">
+                <swiper  :cssMode="true" :navigation="true" :pagination="true" :mousewheel="true" :keyboard="true"
+                    :modules="modules" class="h-full w-full rounded-lg bg-white">
+                    <swiper-slide v-for="(imgen, i) in imagenSlide" :key="i"> 
+                        <img height="70" :src="imgen"/> 
+                    </swiper-slide>
+                </swiper>
             </div>
         </div>
     </div>

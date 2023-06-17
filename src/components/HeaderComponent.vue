@@ -29,7 +29,7 @@ const UserAvatar = `w-10 h-10 bg-[#D3D6E4] rounded-lg `
                 <path d="M4 12L20 12" stroke="#ffffff" stroke-width="2" stroke-linecap="round" />
                 <path d="M4 6L20 6" stroke="#ffffff" stroke-width="2" stroke-linecap="round" />
             </svg>
-            <img class="w-[46px] h-[46px]" :src="logo" />
+            <img class="w-[26px] h-[26px]" :src="logo" />
         </div>
         <div :class="SearchSection">
             <div :class="wraperInputSearche">

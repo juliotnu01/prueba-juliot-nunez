@@ -1,9 +1,9 @@
 <script setup>
 import logo from '../assets/logo.svg'
 
-const headerJul = ` w-full h-full grid grid-cols-6  px-6 py-1   bg-[#24292E] tex-white max-[640px]:grid-cols-4`
+const headerJul = ` w-full h-full grid grid-cols-12  px-6 py-1   bg-[#24292E] tex-white max-[640px]:grid-cols-4`
 const inputSearch = ` ml-[13px] h-full  w-[85vh]   bg-transparent  text-[#B9B9B9]  focus:outline-none focus:ring-0 `
-const hamburgerLogo = `flex gap-4  items-center`
+const hamburgerLogo = `flex gap-4 col-span-2 items-center`
 const cursorInputSearch = `h-4 w-[0.125rem] absolute top-[-0.8rem] translate-y-[1.26rem] left-[0.7rem] bg-[#13B497] `
 const SvgInputSearch = ` absolute top-[-1rem] translate-y-[1.26rem] right-[0.9rem]`
 const wraperInputSearche = `w-full relative bg-[#1C2126] rounded-[6px] h-[30px] self-center before:content-[''] before:absolute  before:left-2 before:w-[1px] before:h-[70%] before:bg-[#13B497] before:top-[50%] before:translate-y-[-50%]`
@@ -14,9 +14,9 @@ const btnMessage = `bg-[#2F363D] p-2 rounded-lg relative max-[640px]:hidden`
 const dotMessage = `w-3 h-3 bg-[#D9B75F] rounded-3xl absolute -top-[2px] -right-[2px]`
 const btngift = `bg-[#2F363D] p-2 rounded-lg relative max-[640px]:hidden`
 const dotgift = `w-3 h-3 bg-[#647280] rounded-3xl absolute -top-[2px] -right-[2px]`
-const NotificationSection = `flex gap-4  col-span-2 justify-end items-center `
-const SearchSection = `flex col-span-2  items-center gap-2 max-[640px]:hidden`
-const UserSection = `flex gap-4 justify-end items-center `
+const NotificationSection = `flex gap-4  col-span-2 justify-end items-center max-[640px]:col-span-1 `
+const SearchSection = `flex col-span-6  items-center gap-2 max-[640px]:hidden`
+const UserSection = `flex gap-4 col-span-2 justify-end items-center max-[640px]:col-span-1 `
 const WraperUserSection = `flex gap-2 bg-[#EEFFF30A] rounded-lg`
 const UserAvatar = `w-10 h-10 bg-[#D3D6E4] rounded-lg `
 
